@@ -1,0 +1,99 @@
+// js1.js
+
+const WEB_APP_URL =
+"https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+
+const receiptInput =
+document.getElementById("receiptNo");
+
+receiptInput.addEventListener(
+  "input",
+  fetchReceiptData
+);
+
+async function fetchReceiptData(){
+
+  const receiptNo =
+    receiptInput.value.trim();
+
+  clearFields();
+
+  if(receiptNo === ""){
+
+    setStatus("", "");
+    return;
+  }
+
+  setStatus(
+    "Searching...",
+    "loading"
+  );
+
+  try{
+
+    const response = await fetch(
+      `${WEB_APP_URL}?receiptNo=${encodeURIComponent(receiptNo)}`
+    );
+
+    const data =
+      await response.json();
+
+    if(data.found){
+
+      document.getElementById("fileNo").value =
+        data.fileNo || "";
+
+      document.getElementById("pucDate").value =
+        data.pucDate || "";
+
+      document.getElementById("receiptDate").value =
+        data.receiptDate || "";
+
+      document.getElementById("pucDescription").value =
+        data.pucDescription || "";
+
+      setStatus(
+        "Record found",
+        "success"
+      );
+
+    }else{
+
+      setStatus(
+        "Receipt number not found",
+        "error"
+      );
+    }
+
+  }catch(error){
+
+    console.log(error);
+
+    setStatus(
+      "Error connecting to server",
+      "error"
+    );
+  }
+}
+
+function clearFields(){
+
+  document.getElementById("fileNo").value = "";
+
+  document.getElementById("pucDate").value = "";
+
+  document.getElementById("receiptDate").value = "";
+
+  document.getElementById("pucDescription").value = "";
+}
+
+function setStatus(message, className){
+
+  const status =
+    document.getElementById("status");
+
+  status.innerHTML = message;
+
+  status.className =
+    `status ${className}`;
+}
