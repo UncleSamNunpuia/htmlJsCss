@@ -1,163 +1,86 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Receipt Lookup</title>
 
-  <style>
-
-    body{
-      font-family: Arial;
-      background:#f2f2f2;
-      padding:40px;
-    }
-
-    .container{
-      max-width:500px;
-      margin:auto;
-      background:white;
-      padding:25px;
-      border-radius:10px;
-      box-shadow:0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h2{
-      text-align:center;
-    }
-
-    .form-group{
-      margin-bottom:15px;
-    }
-
-    label{
-      display:block;
-      margin-bottom:5px;
-      font-weight:bold;
-    }
-
-    input, textarea{
-      width:100%;
-      padding:10px;
-      border:1px solid #ccc;
-      border-radius:5px;
-      box-sizing:border-box;
-    }
-
-    textarea{
-      resize:vertical;
-    }
-
-    .status{
-      margin-top:10px;
-      font-weight:bold;
-      color:red;
-    }
-
-  </style>
+  <!-- CSS FILE -->
+  <link rel="stylesheet" href="css1.css">
 
 </head>
+
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <h2>Receipt Lookup</h2>
+    <h2>Receipt Lookup System</h2>
 
-  <div class="form-group">
-    <label>Receipt Number</label>
-    <input type="text" id="receiptNo" placeholder="Enter Receipt No">
+    <div class="form-group">
+      <label for="receiptNo">Receipt Number</label>
+
+      <input
+        type="text"
+        id="receiptNo"
+        placeholder="Enter Receipt Number"
+        autocomplete="off"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="fileNo">File Number</label>
+
+      <input
+        type="text"
+        id="fileNo"
+        disabled
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="pucDate">PUC Date</label>
+
+      <input
+        type="text"
+        id="pucDate"
+        disabled
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="receiptDate">Receipt Date</label>
+
+      <input
+        type="text"
+        id="receiptDate"
+        disabled
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="pucDescription">PUC Description</label>
+
+      <textarea
+        id="pucDescription"
+        rows="5"
+        disabled
+      ></textarea>
+    </div>
+
+    <div
+      class="status"
+      id="status"
+    ></div>
+
   </div>
 
-  <div class="form-group">
-    <label>File Number</label>
-    <input type="text" id="fileNo" disabled>
-  </div>
-
-  <div class="form-group">
-    <label>PUC Date</label>
-    <input type="text" id="pucDate" disabled>
-  </div>
-
-  <div class="form-group">
-    <label>Receipt Date</label>
-    <input type="text" id="receiptDate" disabled>
-  </div>
-
-  <div class="form-group">
-    <label>PUC Description</label>
-    <textarea id="pucDescription" rows="4" disabled></textarea>
-  </div>
-
-  <div class="status" id="status"></div>
-
-</div>
-
-<script>
-
-const WEB_APP_URL = "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnSXMYzbQ8uriM-VRyEBfmiYmKtZbEM6EL8Jje0VJxVW2x4OQO6PSpa7Bl-ETzzDn9O3v36ElWl67FYnz5D-tgeP4XWjh01Wkt-Mr-sXZ4F7sOCLT1A5E2apV6o_4N0Vn42YVcoXKjO-1t6rzFpVaCYsxtPi5K4ls7o32iozsruO1t2YJ5GxtIqdL9ncSMWEwWkXS-lySRLNRP1P2lWxixPlqrufjvf40CFqr0kxa1TuU0JRVqfUecg5SPnykAE1uNTJHbohIKcvPSM3jUVJB068v_uD4Q&lib=MgNIQUt0RtEgtWhxuTOFKV_Q-sqP20Ani";
-
-document
-  .getElementById("receiptNo")
-  .addEventListener("change", fetchReceiptData);
-
-async function fetchReceiptData(){
-
-  const receiptNo = document
-    .getElementById("receiptNo")
-    .value
-    .trim();
-
-  if(receiptNo === ""){
-    return;
-  }
-
-  document.getElementById("status").innerHTML = "Searching...";
-
-  try{
-
-    const response = await fetch(
-      `${WEB_APP_URL}?receiptNo=${receiptNo}`
-    );
-
-    const data = await response.json();
-
-    if(data.found){
-
-      document.getElementById("fileNo").value =
-        data.fileNo;
-
-      document.getElementById("pucDate").value =
-        data.pucDate;
-
-      document.getElementById("receiptDate").value =
-        data.receiptDate;
-
-      document.getElementById("pucDescription").value =
-        data.pucDescription;
-
-      document.getElementById("status").innerHTML =
-        "Record found";
-
-    }else{
-
-      document.getElementById("fileNo").value = "";
-      document.getElementById("pucDate").value = "";
-      document.getElementById("receiptDate").value = "";
-      document.getElementById("pucDescription").value = "";
-
-      document.getElementById("status").innerHTML =
-        "Receipt number not found";
-    }
-
-  }catch(error){
-
-    document.getElementById("status").innerHTML =
-      "Error connecting to server";
-
-    console.log(error);
-  }
-}
-
-</script>
+  <!-- JS FILE -->
+  <script src="js1.js"></script>
 
 </body>
 </html>
