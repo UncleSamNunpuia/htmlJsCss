@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Receipt Lookup</title>
+
+  <style>
+
+    body{
+      font-family: Arial;
+      background:#f2f2f2;
+      padding:40px;
+    }
+
+    .container{
+      max-width:500px;
+      margin:auto;
+      background:white;
+      padding:25px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      text-align:center;
+    }
+
+    .form-group{
+      margin-bottom:15px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:5px;
+      font-weight:bold;
+    }
+
+    input, textarea{
+      width:100%;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:5px;
+      box-sizing:border-box;
+    }
+
+    textarea{
+      resize:vertical;
+    }
+
+    .status{
+      margin-top:10px;
+      font-weight:bold;
+      color:red;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+
+  <h2>Receipt Lookup</h2>
+
+  <div class="form-group">
+    <label>Receipt Number</label>
+    <input type="text" id="receiptNo" placeholder="Enter Receipt No">
+  </div>
+
+  <div class="form-group">
+    <label>File Number</label>
+    <input type="text" id="fileNo" disabled>
+  </div>
+
+  <div class="form-group">
+    <label>PUC Date</label>
+    <input type="text" id="pucDate" disabled>
+  </div>
+
+  <div class="form-group">
+    <label>Receipt Date</label>
+    <input type="text" id="receiptDate" disabled>
+  </div>
+
+  <div class="form-group">
+    <label>PUC Description</label>
+    <textarea id="pucDescription" rows="4" disabled></textarea>
+  </div>
+
+  <div class="status" id="status"></div>
+
+</div>
+
+<script>
+
+const WEB_APP_URL = "YOUR_WEB_APP_URL";
+
+document
+  .getElementById("receiptNo")
+  .addEventListener("change", fetchReceiptData);
+
+async function fetchReceiptData(){
+
+  const receiptNo = document
+    .getElementById("receiptNo")
+    .value
+    .trim();
+
+  if(receiptNo === ""){
+    return;
+  }
+
+  document.getElementById("status").innerHTML = "Searching...";
+
+  try{
+
+    const response = await fetch(
+      `${WEB_APP_URL}?receiptNo=${receiptNo}`
+    );
+
+    const data = await response.json();
+
+    if(data.found){
+
+      document.getElementById("fileNo").value =
+        data.fileNo;
+
+      document.getElementById("pucDate").value =
+        data.pucDate;
+
+      document.getElementById("receiptDate").value =
+        data.receiptDate;
+
+      document.getElementById("pucDescription").value =
+        data.pucDescription;
+
+      document.getElementById("status").innerHTML =
+        "Record found";
+
+    }else{
+
+      document.getElementById("fileNo").value = "";
+      document.getElementById("pucDate").value = "";
+      document.getElementById("receiptDate").value = "";
+      document.getElementById("pucDescription").value = "";
+
+      document.getElementById("status").innerHTML =
+        "Receipt number not found";
+    }
+
+  }catch(error){
+
+    document.getElementById("status").innerHTML =
+      "Error connecting to server";
+
+    console.log(error);
+  }
+}
+
+</script>
+
+</body>
+</html>
