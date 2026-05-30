@@ -1,5 +1,5 @@
 const WEB_APP_URL =
-"https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnSXMYzbQ8uriM-VRyEBfmiYmKtZbEM6EL8Jje0VJxVW2x4OQO6PSpa7Bl-ETzzDn9O3v36ElWl67FYnz5D-tgeP4XWjh01Wkt-Mr-sXZ4F7sOCLT1A5E2apV6o_4N0Vn42YVcoXKjO-1t6rzFpVaCYsxtPi5K4ls7o32iozsruO1t2YJ5GxtIqdL9ncSMWEwWkXS-lySRLNRP1P2lWxixPlqrufjvf40CFqr0kxa1TuU0JRVqfUecg5SPnykAE1uNTJHbohIKcvPSM3jUVJB068v_uD4Q&lib=MgNIQUt0RtEgtWhxuTOFKV_Q-sqP20Ani";
+"https://script.google.com/macros/s/AKfycbykciAVn3ETnkuay1H5KGO7B7BVi0Xk93-vY3qNPCdkD7IjKdTYuqqFCO1KTPkpXrRJ/exec";
 
 const receiptInput =
 document.getElementById("receiptNo");
