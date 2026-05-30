@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Receipt Lookup</title>
+
+  <link rel="stylesheet" href="css1.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>Receipt Lookup System</h2>
+
+    <div class="form-group">
+
+      <label for="receiptNo">Receipt Number</label>
+
+      <div class="search-box">
+
+        <input
+          type="text"
+          id="receiptNo"
+          placeholder="Enter Receipt Number"
+          autocomplete="off"
+        >
+
+        <button id="searchBtn">
+          Search
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="fileNo">File Number</label>
+      <input type="text" id="fileNo" disabled>
+    </div>
+
+    <div class="form-group">
+      <label for="pucDate">PUC Date</label>
+      <input type="text" id="pucDate" disabled>
+    </div>
+
+    <div class="form-group">
+      <label for="receiptDate">Receipt Date</label>
+      <input type="text" id="receiptDate" disabled>
+    </div>
+
+    <div class="form-group">
+      <label for="pucDescription">PUC Description</label>
+      <textarea id="pucDescription" rows="5" disabled></textarea>
+    </div>
+
+    <div class="status" id="status"></div>
+
+  </div>
+
+  <script src="js1.js"></script>
+
+</body>
+</html>
