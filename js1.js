@@ -53,8 +53,7 @@ async function fetchReceiptData(){
 
     const data =
       await response.json();
-document.getElementById("debug").innerText =
-JSON.stringify(data, null, 2);
+document.getElementById("debug").innerText =JSON.stringify(data, null, 2);
     if(data.found){
 
       document.getElementById("fileNo").value =
