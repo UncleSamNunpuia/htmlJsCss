@@ -1,3 +1,5 @@
+alert("JS Loaded");
+
 async function submitData(){
 
   const formData = {
