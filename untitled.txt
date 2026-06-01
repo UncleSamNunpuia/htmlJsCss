@@ -1,1 +1,9 @@
 https://youtu.be/GPjPTod2lT0?si=TKUSboMhJLIgg5sQ this link is youtube link toblinkngithub reponwith acode
+
+github repo, edited from vscode needs to be commit before reflected to github.
+
+whatever is on github it is auto synced to acode android.
+
+whatever changes in acode android when saved it is always commit to github
+
+then to reflect in vscode the recent cahnges to github vscode must pull
