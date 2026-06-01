@@ -247,10 +247,7 @@ async function submitData(){
 
   }catch(error){
         console.log(error);
-        setStatus(
-  JSON.stringify(error),
-  "error"
-);
+        setStatus(JSON.stringify(error),"error");
         );
       }
     }
