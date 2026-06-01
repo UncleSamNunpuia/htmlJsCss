@@ -74,8 +74,9 @@ async function fetchReceiptData(){
         data.fileNo || "";
 
       document.getElementById("pucDate").value =
+        data.pucDate?formatDate(data.pucDate): "";
         // data.pucDate || "";
-        formatDate(data.pucDate);
+        // formatDate(data.pucDate);
 
       document.getElementById("receiptDate").value =
         data.receiptDate || "";
