@@ -10,12 +10,9 @@ document.getElementById("searchBtn");
 const submitBtn =
 document.getElementById("submitBtn");
 
-
-
 /* =========================
    EVENT LISTENERS
 ========================= */
-
 searchBtn.addEventListener(
   "click",
   fetchReceiptData
@@ -36,13 +33,9 @@ receiptInput.addEventListener(
     }
   }
 );
-
-
-
 /* =========================
    DATE FORMAT FUNCTION
 ========================= */
-
 function formatDate(dateString){
 
   const date =
@@ -51,7 +44,6 @@ function formatDate(dateString){
   return date.toLocaleString(
     "en-GB",
     {
-
       day: "2-digit",
       month: "2-digit",
       year: "numeric",
@@ -60,31 +52,23 @@ function formatDate(dateString){
       minute: "2-digit",
 
       hour12: false
-
     }
   );
 }
-
-
-
 /* =========================
    FETCH RECEIPT DATA
 ========================= */
-
 async function fetchReceiptData(){
 
   const receiptNo =
     receiptInput.value.trim();
-
   clearFields();
 
   if(receiptNo === ""){
-
     setStatus(
       "Please enter receipt number",
       "error"
     );
-
     return;
   }
 
@@ -94,12 +78,9 @@ async function fetchReceiptData(){
   );
 
   try{
-
     const response =
       await fetch(
-
         `${WEB_APP_URL}?receiptNo=${encodeURIComponent(receiptNo)}`
-
       );
 
     const data =
@@ -118,8 +99,6 @@ async function fetchReceiptData(){
 
         data.fileNo || "";
 
-
-
       document.getElementById(
         "pucDate"
       ).value =
@@ -127,8 +106,6 @@ async function fetchReceiptData(){
         data.pucDate
           ? formatDate(data.pucDate)
           : "";
-
-
 
       document.getElementById(
         "receiptDate"
@@ -138,15 +115,10 @@ async function fetchReceiptData(){
           ? formatDate(data.receiptDate)
           : "";
 
-
-
       document.getElementById(
         "pucDescription"
       ).value =
-
         data.pucDescription || "";
-
-
 
       setStatus(
         "Record found",
@@ -154,7 +126,6 @@ async function fetchReceiptData(){
       );
 
     }else{
-
       setStatus(
         "Receipt number not found",
         "error"
@@ -162,9 +133,7 @@ async function fetchReceiptData(){
     }
 
   }catch(error){
-
     console.log(error);
-
     setStatus(
       "Error connecting to server",
       "error"
@@ -222,6 +191,7 @@ async function submitData(){
         WEB_APP_URL,
         {
           method: "POST",
+          mode:"no-cors",
           headers: {
             "Content-Type":
               "application/json"
