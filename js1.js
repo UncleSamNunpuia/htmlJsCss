@@ -252,9 +252,7 @@ async function submitData(){
 function clearFields(){
   document.getElementById("fileNo").value = "";
 
-  document.getElementById(
-    "pucDate"
-  ).value = "";
+  document.getElementById("pucDate").value = "";
 
   document.getElementById(
     "receiptDate"
