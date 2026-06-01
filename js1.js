@@ -39,7 +39,6 @@ receiptInput.addEventListener(
   function(event){
 
     if(event.key === "Enter"){
-
       fetchReceiptData();
     }
   }
