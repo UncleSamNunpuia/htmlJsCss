@@ -251,20 +251,10 @@ async function submitData(){
 ========================= */
 function clearFields(){
   document.getElementById("fileNo").value = "";
-
   document.getElementById("pucDate").value = "";
-
-  document.getElementById(
-    "receiptDate"
-  ).value = "";
-
-  document.getElementById(
-    "pucDescription"
-  ).value = "";
+  document.getElementById("receiptDate").value = "";
+  document.getElementById("pucDescription").value = "";
 }
-
-
-
 /* =========================
    STATUS FUNCTION
 ========================= */
@@ -274,11 +264,9 @@ function setStatus(
   className
 ){
 
-  const status =
-    document.getElementById("status");
+  const status =document.getElementById("status");
 
-  status.innerHTML =
-    message;
+  status.innerHTML =message;
 
   status.className =
     `status ${className}`;
