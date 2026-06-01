@@ -6,6 +6,163 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Receipt Lookup System test html</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="container py-5">
+
+    <div class="card shadow-lg p-4">
+
+      <h2 class="text-center mb-4">
+        Receipt Lookup System
+      </h2>
+
+      <!-- Receipt Number -->
+      <div class="mb-3">
+
+        <label for="receiptNo" class="form-label">
+          Receipt Number
+        </label>
+
+        <div class="input-group">
+
+          <input
+            type="text"
+            id="receiptNo"
+            class="form-control"
+            placeholder="Enter Receipt Number"
+            autocomplete="off"
+          >
+
+          <button
+            id="searchBtn"
+            class="btn btn-primary"
+          >
+            Search
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- File Number -->
+      <div class="mb-3">
+
+        <label for="fileNo" class="form-label">
+          File Number
+        </label>
+
+        <input
+          type="text"
+          id="fileNo"
+          class="form-control"
+        >
+
+      </div>
+
+      <!-- PUC Date -->
+      <div class="mb-3">
+
+        <label for="pucDate" class="form-label">
+          PUC Date
+        </label>
+
+        <input
+          type="text"
+          id="pucDate"
+          class="form-control"
+        >
+
+      </div>
+
+      <!-- Receipt Date -->
+      <div class="mb-3">
+
+        <label for="receiptDate" class="form-label">
+          Receipt Date
+        </label>
+
+        <input
+          type="text"
+          id="receiptDate"
+          class="form-control"
+        >
+
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+
+        <label for="pucDescription" class="form-label">
+          PUC Description
+        </label>
+
+        <textarea
+          id="pucDescription"
+          rows="5"
+          class="form-control"
+        ></textarea>
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-grid gap-2">
+
+        <button
+          id="submitBtn"
+          class="btn btn-success btn-lg"
+        >
+          Submit
+        </button>
+
+      </div>
+
+      <!-- Status -->
+      <div
+        id="status"
+        class="alert mt-4 d-none"
+      ></div>
+
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+  <!-- Main JS -->
+  <script src="js1.js"></script>
+
+</body>
+
+</html>
+
+
+<!-- 
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Receipt Lookup</title>
 
   <link rel="stylesheet" href="css1.css">
@@ -67,4 +224,4 @@
   <script src="js1.js"></script>
 
 </body>
-</html>
+</html> -->
