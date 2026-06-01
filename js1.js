@@ -9,13 +9,9 @@ document.getElementById("searchBtn");
 
 const submitBtn =
 document.getElementById("submitBtn");
-
-
-
 /* =========================
    EVENT LISTENERS
 ========================= */
-
 searchBtn.addEventListener(
   "click",
   fetchReceiptData
@@ -36,13 +32,9 @@ receiptInput.addEventListener(
     }
   }
 );
-
-
-
 /* =========================
    DATE FORMAT FUNCTION
 ========================= */
-
 function formatDate(dateString){
 
   const date =
@@ -60,13 +52,9 @@ function formatDate(dateString){
       minute: "2-digit",
 
       hour12: false
-
     }
   );
 }
-
-
-
 /* =========================
    FETCH RECEIPT DATA
 ========================= */
@@ -118,8 +106,6 @@ async function fetchReceiptData(){
 
         data.fileNo || "";
 
-
-
       document.getElementById(
         "pucDate"
       ).value =
@@ -127,8 +113,6 @@ async function fetchReceiptData(){
         data.pucDate
           ? formatDate(data.pucDate)
           : "";
-
-
 
       document.getElementById(
         "receiptDate"
@@ -138,15 +122,11 @@ async function fetchReceiptData(){
           ? formatDate(data.receiptDate)
           : "";
 
-
-
       document.getElementById(
         "pucDescription"
       ).value =
 
         data.pucDescription || "";
-
-
 
       setStatus(
         "Record found",
@@ -171,13 +151,9 @@ async function fetchReceiptData(){
     );
   }
 }
-
-
-
 /* =========================
    SUBMIT DATA
 ========================= */
-
 async function submitData(){
 
   const formData = {
@@ -202,8 +178,6 @@ async function submitData(){
 
   };
 
-
-
   if(formData.receiptNo === ""){
 
     setStatus(
@@ -213,8 +187,6 @@ async function submitData(){
 
     return;
   }
-
-
 
   if(formData.actionTaken === ""){
 
@@ -226,14 +198,10 @@ async function submitData(){
     return;
   }
 
-
-
   setStatus(
     "Submitting data...",
     "loading"
   );
-
-
 
   try{
 
@@ -250,73 +218,47 @@ async function submitData(){
 
             "Content-Type":
               "application/json"
-
           },
-
           body:
             JSON.stringify(formData)
-
         }
       );
-
-
 
     const result =
       await response.text();
 
     console.log(result);
 
-
-
     setStatus(
       "Data submitted successfully",
       "success"
     );
 
-
-
     document.getElementById(
       "actionTaken"
     ).value = "";
 
-
-
   }catch(error){
-
     console.log(error);
-
     setStatus(
       "Submission failed",
       "error"
     );
   }
 }
-
-
-
 /* =========================
    CLEAR FIELDS
 ========================= */
-
 function clearFields(){
-
-  document.getElementById(
-    "fileNo"
-  ).value = "";
-
-
+  document.getElementById("fileNo").value = "";
 
   document.getElementById(
     "pucDate"
   ).value = "";
 
-
-
   document.getElementById(
     "receiptDate"
   ).value = "";
-
-
 
   document.getElementById(
     "pucDescription"
