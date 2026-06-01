@@ -145,3 +145,34 @@ textarea{
 
   opacity:0.9;
 }
+
+body{
+    background:#f4f7fb;
+    min-height:100vh;
+}
+
+.card{
+    border:none;
+    border-radius:20px;
+}
+
+h2{
+    font-weight:700;
+}
+
+.form-control{
+    border-radius:12px;
+}
+
+.btn{
+    border-radius:12px;
+    font-weight:600;
+}
+
+textarea{
+    resize:none;
+}
+
+#status{
+    font-weight:600;
+}
