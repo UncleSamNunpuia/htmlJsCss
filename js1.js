@@ -171,23 +171,15 @@ async function fetchReceiptData(){
     );
   }
 }
-
-
-
 /* =========================
    SUBMIT DATA
 ========================= */
-
 async function submitData(){
-
   const formData = {
-
     receiptNo:
       document.getElementById("receiptNo").value,
-
     fileNo:
       document.getElementById("fileNo").value,
-
     pucDate:
       document.getElementById("pucDate").value,
 
@@ -202,10 +194,7 @@ async function submitData(){
 
   };
 
-
-
   if(formData.receiptNo === ""){
-
     setStatus(
       "Please search receipt first",
       "error"
@@ -214,132 +203,87 @@ async function submitData(){
     return;
   }
 
-
-
   if(formData.actionTaken === ""){
-
     setStatus(
       "Please enter action taken",
       "error"
     );
-
     return;
   }
-
-
 
   setStatus(
     "Submitting data...",
     "loading"
   );
 
-
-
   try{
-
     const response =
       await fetch(
-
         WEB_APP_URL,
-
         {
-
           method: "POST",
-
           headers: {
-
             "Content-Type":
               "application/json"
-
           },
-
           body:
             JSON.stringify(formData)
-
         }
       );
-
-
 
     const result =
       await response.text();
 
     console.log(result);
 
-
-
     setStatus(
       "Data submitted successfully",
       "success"
     );
 
-
-
     document.getElementById(
       "actionTaken"
     ).value = "";
 
-
-
   }catch(error){
-
-    console.log(error);
-
-    setStatus(
-      "Submission failed",
-      "error"
-    );
-  }
-}
-
-
-
+        console.log(error);
+        setStatus(
+          "Submission failed",
+          "error"
+        );
+      }
+    }
 /* =========================
    CLEAR FIELDS
 ========================= */
-
 function clearFields(){
-
   document.getElementById(
     "fileNo"
   ).value = "";
-
-
 
   document.getElementById(
     "pucDate"
   ).value = "";
 
-
-
   document.getElementById(
     "receiptDate"
   ).value = "";
-
-
 
   document.getElementById(
     "pucDescription"
   ).value = "";
 }
-
-
-
 /* =========================
    STATUS FUNCTION
 ========================= */
-
 function setStatus(
   message,
   className
 ){
-
   const status =
     document.getElementById("status");
-
   status.innerHTML =
     message;
-
   status.className =
     `status ${className}`;
 }
