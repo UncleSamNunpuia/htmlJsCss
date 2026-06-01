@@ -257,26 +257,17 @@ function clearFields(){
 /* =========================
    STATUS FUNCTION
 ========================= */
-
-function setStatus(
-  message,
-  type
-){
+function setStatus(message, type){
 
   const status =
     document.getElementById("status");
 
-
+  status.style.display = "block";
 
   status.innerHTML =
     message;
 
-
-
   status.className =
     `alert alert-${type} mt-4`;
 }
-
-
-
 }
