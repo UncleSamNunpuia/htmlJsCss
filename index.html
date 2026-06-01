@@ -170,53 +170,121 @@
 </head>
 
 <body>
-<h2>Form for dealing-</h2>
-  <div class="container">
+  <div class="container py-5">
 
-    <h2>Receipt Lookup System</h2>
+    <div class="card shadow-lg p-4">
 
-    <div class="form-group">
+      <h2 class="text-center mb-4">
+        Receipt Lookup System
+      </h2>
 
-      <label for="receiptNo">Receipt Number</label>
+      <!-- Receipt Number -->
+      <div class="mb-3">
 
-      <div class="search-box">
+        <label for="receiptNo" class="form-label">
+          Receipt Number
+        </label>
+
+        <div class="input-group">
+
+          <input
+            type="text"
+            id="receiptNo"
+            class="form-control"
+            placeholder="Enter Receipt Number"
+            autocomplete="off"
+          >
+
+          <button
+            id="searchBtn"
+            class="btn btn-primary"
+          >
+            Search
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- File Number -->
+      <div class="mb-3">
+
+        <label for="fileNo" class="form-label">
+          File Number
+        </label>
 
         <input
           type="text"
-          id="receiptNo"
-          placeholder="Enter Receipt Number"
-          autocomplete="off"
+          id="fileNo"
+          class="form-control"
         >
 
-        <button id="searchBtn">
-          Search
+      </div>
+
+      <!-- PUC Date -->
+      <div class="mb-3">
+
+        <label for="pucDate" class="form-label">
+          PUC Date
+        </label>
+
+        <input
+          type="text"
+          id="pucDate"
+          class="form-control"
+        >
+
+      </div>
+
+      <!-- Receipt Date -->
+      <div class="mb-3">
+
+        <label for="receiptDate" class="form-label">
+          Receipt Date
+        </label>
+
+        <input
+          type="text"
+          id="receiptDate"
+          class="form-control"
+        >
+
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+
+        <label for="pucDescription" class="form-label">
+          PUC Description
+        </label>
+
+        <textarea
+          id="pucDescription"
+          rows="5"
+          class="form-control"
+        ></textarea>
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-grid gap-2">
+
+        <button
+          id="submitBtn"
+          class="btn btn-success btn-lg"
+        >
+          Submit
         </button>
 
       </div>
 
-    </div>
+      <!-- Status -->
+      <div
+        id="status"
+        class="alert mt-4 d-none"
+      ></div>
 
-    <div class="form-group">
-      <label for="fileNo">File Number</label>
-      <input type="text" id="fileNo" disabled>
     </div>
-
-    <div class="form-group">
-      <label for="pucDate">PUC Date</label>
-      <input type="text" id="pucDate" disabled>
-    </div>
-
-    <div class="form-group">
-      <label for="receiptDate">Receipt Date</label>
-      <input type="text" id="receiptDate" disabled>
-    </div>
-
-    <div class="form-group">
-      <label for="pucDescription">PUC Description</label>
-      <textarea id="pucDescription" rows="5" disabled></textarea>
-    </div>
-
-    <div class="status" id="status"></div>
 
   </div>
 <pre id="debug"></pre>
