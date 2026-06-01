@@ -60,7 +60,8 @@ async function fetchReceiptData(){
         data.fileNo || "";
 
       document.getElementById("pucDate").value =
-        data.pucDate || "";
+        // data.pucDate || "";
+        formatDate(data.pucDate);
 
       document.getElementById("receiptDate").value =
         data.receiptDate || "";
