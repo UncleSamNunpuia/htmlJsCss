@@ -73,11 +73,8 @@ function formatDate(dateString){
 ========================= */
 
 async function fetchReceiptData(){
-
-  alert("Search button clicked");
-
-  const receiptNo =
-    receiptInput.value.trim();
+  // alert("Search button clicked");
+  const receiptNo = receiptInput.value.trim();
 
   clearFields();
 
