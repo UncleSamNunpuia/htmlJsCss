@@ -248,8 +248,9 @@ async function submitData(){
   }catch(error){
         console.log(error);
         setStatus(
-          "Submission failed",
-          "error"
+  JSON.stringify(error),
+  "error"
+);
         );
       }
     }
