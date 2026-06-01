@@ -51,6 +51,20 @@ async function fetchReceiptData(){
       `${WEB_APP_URL}?receiptNo=${encodeURIComponent(receiptNo)}`
     );
 
+    function formatDate(dateString){
+
+    const date = new Date(dateString);
+
+    return date.toLocaleString("en-GB", {
+
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+        });
+    }
     const data =
       await response.json();
     document.getElementById("debug").innerText =JSON.stringify(data, null, 2);
