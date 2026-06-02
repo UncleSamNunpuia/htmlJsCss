@@ -53,7 +53,6 @@ async function fetchReceiptData(){
     setStatus("Please enter receipt number","danger");
     return;
   }
-
   setStatus("Searching...","warning");
 
   try{
