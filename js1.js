@@ -134,53 +134,24 @@ async function submitData(){
 ========================= */
 async function runOCR(){
 
-  const file =
-    paperPhoto.files[0];
-
+  const file = paperPhoto.files[0];
   if(!file){
     return;
   }
-
-  setStatus(
-    "Reading document...",
-    "warning"
-  );
-
+  setStatus("Reading document...","warning");
   try{
-
-    const result =
-      await Tesseract.recognize(
-        file,
-        "eng"
-      );
-
-    const extractedText =
-      result.data.text;
-
+    const result =await Tesseract.recognize(file, "eng");
+    const extractedText = result.data.text;
     console.log(extractedText);
 
-    document.getElementById(
-      "ocrText"
-    ).innerText = extractedText;
-
-    // autofill description
-    document.getElementById(
-      "pucDescription"
-    ).value = extractedText;
-
-    setStatus(
-      "OCR completed",
-      "success"
-    );
+    document.getElementById("ocrText").innerText = extractedText;
+   // autofill description
+    document.getElementById("pucDescription").value = extractedText;
+    setStatus("OCR completed","success");
 
   }catch(error){
-
     console.log(error);
-
-    setStatus(
-      "OCR failed",
-      "danger"
-    );
+    setStatus("OCR failed","danger");
   }
 }
 /* =========================
