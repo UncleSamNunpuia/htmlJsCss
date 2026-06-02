@@ -21,6 +21,10 @@ const aiDebug = document.getElementById("aiDebug");
 searchBtn.addEventListener("click", fetchReceiptData);
 submitBtn.addEventListener("click",submitData);
 paperPhoto.addEventListener("change",runOCR);
+aiPaperPhoto.addEventListener(
+  "change",
+  runAI
+);
 
 receiptInput.addEventListener("keypress",
   function(event){
