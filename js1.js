@@ -163,6 +163,29 @@ async function runOCR(){
     setStatus("OCR failed","danger");
   }
 }
+
+/* =========================
+   FILE TO BASE64
+========================= */
+
+function fileToBase64(file){
+
+  return new Promise(
+    (resolve,reject)=>{
+
+      const reader =
+        new FileReader();
+
+      reader.readAsDataURL(file);
+
+      reader.onload = () =>
+        resolve(reader.result);
+
+      reader.onerror = error =>
+        reject(error);
+    }
+  );
+}
 /* =========================
    CLEAR FIELDS
 ========================= */
