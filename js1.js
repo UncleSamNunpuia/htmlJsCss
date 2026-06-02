@@ -167,7 +167,6 @@ async function runOCR(){
 /* =========================
    FILE TO BASE64
 ========================= */
-
 function fileToBase64(file){
 
   return new Promise(
@@ -175,16 +174,63 @@ function fileToBase64(file){
 
       const reader =
         new FileReader();
-
       reader.readAsDataURL(file);
-
       reader.onload = () =>
         resolve(reader.result);
-
       reader.onerror = error =>
         reject(error);
     }
   );
+}
+/* =========================
+   AI DOCUMENT ANALYSIS
+========================= */
+async function runAI(){
+  const file =
+    aiPaperPhoto.files[0];
+
+  if(!file){
+    return;
+  }
+  setStatus("Analyzing document with AI...","warning");
+
+  try{
+    // convert image
+    const base64Image =await fileToBase64(file);
+    aiDebug.style.display ="block";
+    aiDebug.innerText ="Sending image to AI...";
+
+    // send to backend
+    const response =
+      await fetch(
+        "/api/analyze-document",
+        {
+          method:"POST",
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+          body:JSON.stringify({
+            image: base64Image
+          })
+        }
+      );
+
+    const data = await response.json();
+    console.log(data);
+
+    aiDebug.innerText = JSON.stringify(data,null,2);
+
+    // autofill fields
+    aiSubject.value =data.subject || "";
+    aiSummary.value =data.summary || "";
+
+    setStatus("AI analysis completed","success");
+
+  }catch(error){
+    console.log(error);
+    setStatus("AI analysis failed","danger");
+  }
 }
 /* =========================
    CLEAR FIELDS
