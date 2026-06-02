@@ -101,10 +101,7 @@ async function submitData(){
   }
 
   if(formData.actionTaken === ""){
-    setStatus(
-      "Please enter action taken",
-      "danger"
-    );
+    setStatus("Please enter action taken","danger");
     return;
   }
 
@@ -130,6 +127,60 @@ async function submitData(){
   }catch(error){
     console.log(error);
     setStatus("Submission failed","danger");
+  }
+}
+/* =========================
+   OCR FUNCTION
+========================= */
+async function runOCR(){
+
+  const file =
+    paperPhoto.files[0];
+
+  if(!file){
+    return;
+  }
+
+  setStatus(
+    "Reading document...",
+    "warning"
+  );
+
+  try{
+
+    const result =
+      await Tesseract.recognize(
+        file,
+        "eng"
+      );
+
+    const extractedText =
+      result.data.text;
+
+    console.log(extractedText);
+
+    document.getElementById(
+      "ocrText"
+    ).innerText = extractedText;
+
+    // autofill description
+    document.getElementById(
+      "pucDescription"
+    ).value = extractedText;
+
+    setStatus(
+      "OCR completed",
+      "success"
+    );
+
+  }catch(error){
+
+    console.log(error);
+
+    setStatus(
+      "OCR failed",
+      "danger"
+    );
   }
 }
 /* =========================
