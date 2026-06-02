@@ -10,6 +10,11 @@ const receiptInput = document.getElementById("receiptNo");
 const searchBtn = document.getElementById("searchBtn");
 const submitBtn = document.getElementById("submitBtn");
 const paperPhoto = document.getElementById("paperPhoto");
+
+const aiPaperPhoto = document.getElementById("aiPaperPhoto");
+const aiSubject = document.getElementById("aiSubject");
+const aiSummary = document.getElementById("aiSummary");
+const aiDebug = document.getElementById("aiDebug");
 /* =========================
    EVENT LISTENERS
 ========================= */
