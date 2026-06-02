@@ -45,8 +45,7 @@ function formatDate(dateString){
    FETCH RECEIPT DATA
 ========================= */
 async function fetchReceiptData(){
-  const receiptNo =
-    receiptInput.value.trim();
+  const receiptNo = receiptInput.value.trim();
   clearFields();
 
   if(receiptNo === ""){
