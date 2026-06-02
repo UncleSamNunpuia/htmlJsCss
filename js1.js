@@ -9,7 +9,7 @@ const WEB_APP_URL =
 const receiptInput = document.getElementById("receiptNo");
 const searchBtn = document.getElementById("searchBtn");
 const submitBtn = document.getElementById("submitBtn");
-
+const paperPhoto = document.getElementById("paperPhoto");
 /* =========================
    EVENT LISTENERS
 ========================= */
