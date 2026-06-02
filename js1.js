@@ -15,6 +15,7 @@ const paperPhoto = document.getElementById("paperPhoto");
 ========================= */
 searchBtn.addEventListener("click", fetchReceiptData);
 submitBtn.addEventListener("click",submitData);
+paperPhoto.addEventListener("change",runOCR);
 
 receiptInput.addEventListener("keypress",
   function(event){
