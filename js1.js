@@ -177,10 +177,7 @@ async function submitData(){
     return;
   }
 
-  setStatus(
-    "Submitting data...",
-    "warning"
-  );
+  setStatus("Submitting data...","warning");
   try{
     await fetch(
       WEB_APP_URL,
@@ -195,21 +192,13 @@ async function submitData(){
       }
     );
 
-    setStatus(
-      "Data submitted successfully",
-      "success"
-    );
+    setStatus("Data submitted successfully","success");
 
-    document.getElementById(
-      "actionTaken"
-    ).value = "";
+    document.getElementById("actionTaken").value = "";
 
   }catch(error){
     console.log(error);
-    setStatus(
-      "Submission failed",
-      "danger"
-    );
+    setStatus("Submission failed","danger");
   }
 }
 /* =========================
@@ -224,10 +213,7 @@ function clearFields(){
 /* =========================
    STATUS FUNCTION
 ========================= */
-function setStatus(
-  message,
-  type
-){
+function setStatus(message, type){
   const status = document.getElementById("status");
   status.style.display = "block";
   status.innerHTML = message;
