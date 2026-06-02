@@ -1,183 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
     Receipt Lookup System
   </title>
 
   <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link
-    rel="stylesheet"
-    href="css1.css"
-  >
-
+  <link rel="stylesheet" href="css1.css">
 </head>
-
 <body>
-
   <div class="container py-5">
-
     <div class="card shadow-lg p-4">
-
       <h2 class="text-center mb-4">
         Receipt Lookup System
       </h2>
 
-
-
       <!-- Receipt Number -->
       <div class="mb-3">
-
-        <label
-          for="receiptNo"
-          class="form-label"
-        >
+        <label for="receiptNo" class="form-label">
           Receipt Number
         </label>
 
         <div class="input-group">
+          <input type="text" id="receiptNo" class="form-control" placeholder="Enter Receipt Number" autocomplete="off">
 
-          <input
-            type="text"
-            id="receiptNo"
-            class="form-control"
-            placeholder="Enter Receipt Number"
-            autocomplete="off"
-          >
-
-          <button
-            id="searchBtn"
-            class="btn btn-primary"
-            type="button"
-          >
+          <button id="searchBtn" class="btn btn-primary" type="button">
             Search
           </button>
-
         </div>
-
       </div>
-
-
 
       <!-- File Number -->
       <div class="mb-3">
 
-        <label
-          for="fileNo"
-          class="form-label"
-        >
+        <label for="fileNo" class="form-label">
           File Number
         </label>
 
-        <input
-          type="text"
-          id="fileNo"
-          class="form-control"
-          readonly
-        >
-
+        <input type="text" id="fileNo" class="form-control" readonly>
       </div>
-
-
 
       <!-- PUC Date -->
       <div class="mb-3">
 
-        <label
-          for="pucDate"
-          class="form-label"
-        >
+        <label for="pucDate" class="form-label">
           PUC Date
         </label>
 
-        <input
-          type="text"
-          id="pucDate"
-          class="form-control"
-          readonly
-        >
-
+        <input type="text" id="pucDate" class="form-control" readonly>
       </div>
-
-
 
       <!-- Receipt Date -->
       <div class="mb-3">
 
-        <label
-          for="receiptDate"
-          class="form-label"
-        >
+        <label for="receiptDate" class="form-label">
           Receipt Date
         </label>
-
-        <input
-          type="text"
-          id="receiptDate"
-          class="form-control"
-          readonly
-        >
-
+        <input type="text" id="receiptDate" class="form-control" readonly>
       </div>
-
-
-
+      
       <!-- PUC Description -->
       <div class="mb-3">
-
-        <label
-          for="pucDescription"
-          class="form-label"
-        >
+        <label for="pucDescription" class="form-label">
           PUC Description
         </label>
-
-        <textarea
-          id="pucDescription"
-          rows="5"
-          class="form-control"
-          readonly
-        ></textarea>
-
+        <textarea id="pucDescription" rows="5" class="form-control" readonly></textarea>
       </div>
-
-
 
       <!-- Action Taken -->
       <div class="mb-3">
-
-        <label
-          for="actionTaken"
-          class="form-label"
-        >
+        <label for="actionTaken" class="form-label">
           Action Taken
         </label>
-
-        <textarea
-          id="actionTaken"
-          rows="3"
-          class="form-control"
-          placeholder="Enter action taken"
-        ></textarea>
-
+        <textarea id="actionTaken" rows="3" class="form-control" placeholder="Enter action taken"></textarea>
       </div>
-
-
+      
+      <div>
+        <label>Upload Received Paper</label>
+        <input type="file" id="paperPhoto">
+      </div>
 
       <!-- Submit Button -->
       <div class="d-grid">
